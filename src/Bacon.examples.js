@@ -21,4 +21,4 @@
           username = Bacon.UI.textFieldValue($("#username input"))
           fullname = Bacon.UI.textFieldValue($("#fullname input"))
           username.log();
-      })
+      });
