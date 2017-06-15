@@ -1,0 +1,30 @@
+{
+  "name": "underscore-baconjs-examples",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MohamedHamed83/underscore-baconjs-examples.git"
+  },
+  "author": "Mohamed hamed",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MohamedHamed83/underscore-baconjs-examples/issues"
+  },
+  "homepage": "https://github.com/MohamedHamed83/underscore-baconjs-examples#readme",
+  "dependencies": {
+    "baconjs": "^0.7.93",
+    "baconui": "^0.3.14",
+    "jquery": "^3.2.1",
+    "jquery-mockjax": "^2.2.1",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "eslint": "^4.0.0",
+    "lite-server": "^2.3.0"
+  }
+}
