@@ -62,25 +62,25 @@
         $('#result').empty();
         data = {
             people: [{
-                    name: 'Craig',
-                    state: 'CA',
-                    price: 100
-                },
-                {
-                    name: 'John',
-                    state: 'FL',
-                    price: 200
-                },
-                {
-                    name: 'Dan',
-                    state: 'AZ',
-                    price: 500
-                },
-                {
-                    name: 'Elijah',
-                    state: 'TN',
-                    price: 750
-                }
+                name: 'Craig',
+                state: 'CA',
+                price: 100
+            },
+            {
+                name: 'John',
+                state: 'FL',
+                price: 200
+            },
+            {
+                name: 'Dan',
+                state: 'AZ',
+                price: 500
+            },
+            {
+                name: 'Elijah',
+                state: 'TN',
+                price: 750
+            }
             ]
         };
         var total = _.reduce(data.people, function (memo, value) {
@@ -92,25 +92,25 @@
         $('#result').empty();
         data = {
             people: [{
-                    name: 'Craig',
-                    state: 'CA',
-                    price: 100
-                },
-                {
-                    name: 'John',
-                    state: 'FL',
-                    price: 200
-                },
-                {
-                    name: 'Dan',
-                    state: 'AZ',
-                    price: 500
-                },
-                {
-                    name: 'Elijah',
-                    state: 'TN',
-                    price: 750
-                }
+                name: 'Craig',
+                state: 'CA',
+                price: 100
+            },
+            {
+                name: 'John',
+                state: 'FL',
+                price: 200
+            },
+            {
+                name: 'Dan',
+                state: 'AZ',
+                price: 500
+            },
+            {
+                name: 'Elijah',
+                state: 'TN',
+                price: 750
+            }
             ]
         };
         var total = _.reduce(data.people, function (memo, value) {
@@ -185,30 +185,30 @@
     $('#filterExample2').click(function () {
         $('#result').empty();
         values = [{
-                name: 'Craig',
-                state: 'CA',
-                price: 100
-            },
-            {
-                name: 'John',
-                state: 'FL',
-                price: 200
-            },
-            {
-                name: 'Dan',
-                state: 'AZ',
-                price: 500
-            },
-            {
-                name: 'Elijah',
-                state: 'TN',
-                price: 750
-            }
+            name: 'Craig',
+            state: 'CA',
+            price: 100
+        },
+        {
+            name: 'John',
+            state: 'FL',
+            price: 200
+        },
+        {
+            name: 'Dan',
+            state: 'AZ',
+            price: 500
+        },
+        {
+            name: 'Elijah',
+            state: 'TN',
+            price: 750
+        }
 
         ];
         evenCriteria = function (value) {
-                return value.price % 2 === 0;
-            },
+            return value.price % 2 === 0;
+        },
             oddCriteria = function (value) {
                 return value.price % 2 !== 0;
             };
@@ -227,43 +227,85 @@
     //-------------------------- where -------------------------------
     $('#whereExample').click(function () {
         var courses = [{
-                title: 'Structuring JavaScript Code',
-                author: 'Dan Wahlin',
-                level: 'Intermediate'
-            },
-            {
-                title: 'Introduction to Building Windows 8 Applications',
-                author: 'Dan Wahlin',
-                level: 'Beginner'
-            },
-            {
-                title: 'Introduction to ASP.NET 4 WebForms',
-                author: 'Dan Wahlin',
-                level: 'Beginner'
-            },
-            {
-                title: 'HTML5 Fundamentals',
-                author: 'Craig Shoemaker',
-                level: 'Beginner',
-            },
-            {
-                title: 'Single Page Apps with HTML5, Web API, Knockout and jQuery',
-                author: 'John Papa',
-                level: 'Intermediate'
-            },
-            {
-                title: 'Front-End First: Testing and Prototyping JavaScript Apps',
-                author: 'Elijah Manor',
-                level: 'Intermediate'
-            }
+            title: 'Structuring JavaScript Code',
+            author: 'Dan Wahlin',
+            level: 'Intermediate'
+        },
+        {
+            title: 'Introduction to Building Windows 8 Applications',
+            author: 'Dan Wahlin',
+            level: 'Beginner'
+        },
+        {
+            title: 'Introduction to ASP.NET 4 WebForms',
+            author: 'Dan Wahlin',
+            level: 'Beginner'
+        },
+        {
+            title: 'HTML5 Fundamentals',
+            author: 'Craig Shoemaker',
+            level: 'Beginner',
+        },
+        {
+            title: 'Single Page Apps with HTML5, Web API, Knockout and jQuery',
+            author: 'John Papa',
+            level: 'Intermediate'
+        },
+        {
+            title: 'Front-End First: Testing and Prototyping JavaScript Apps',
+            author: 'Elijah Manor',
+            level: 'Intermediate'
+        }
         ];
         logBold('Intermediate Courses');
         _.each(_.where(courses, {
             level: 'Intermediate'
         }), logProperty, 'title');
-                logBold('John Papa courses');
+        logBold('John Papa courses');
         _.each(_.where(courses, {
             author: 'John Papa'
+        }), logProperty, 'title');
+    });
+    $('#findWhereExample').click(function () {
+        var courses = [{
+            title: 'Structuring JavaScript Code',
+            author: 'Dan Wahlin',
+            level: 'Intermediate'
+        },
+        {
+            title: 'Introduction to Building Windows 8 Applications',
+            author: 'Dan Wahlin',
+            level: 'Beginner'
+        },
+        {
+            title: 'Introduction to ASP.NET 4 WebForms',
+            author: 'Dan Wahlin',
+            level: 'Beginner'
+        },
+        {
+            title: 'HTML5 Fundamentals',
+            author: 'Craig Shoemaker',
+            level: 'Beginner',
+        },
+        {
+            title: 'Single Page Apps with HTML5, Web API, Knockout and jQuery',
+            author: 'John Papa',
+            level: 'Intermediate'
+        },
+        {
+            title: 'Front-End First: Testing and Prototyping JavaScript Apps',
+            author: 'Elijah Manor',
+            level: 'Intermediate'
+        }
+        ];
+        logBold('Intermediate Courses');
+        _.each(_.findWhere(courses, {
+            level: 'Intermediate'
+        }), logProperty, 'title');
+        logBold('Dan Wahlin courses');
+        _.each(_.findWhere(courses, {
+            author: 'Dan Wahlin',
+            level:'Intermediate'
         }), logProperty, 'title');
     });
 })();
