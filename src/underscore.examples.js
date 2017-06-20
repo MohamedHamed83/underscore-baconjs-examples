@@ -1,6 +1,7 @@
 (function () {
 
     var log = function (contents) {
+        $('#result').empty();
         if (_.isArray(contents)) {
             _.each(contents, function (e, i, l) {
                 log(e);
@@ -10,6 +11,7 @@
         }
     };
     var logBold = function (contents) {
+        $('#result').empty();
         logRaw('<br /><b>' + contents + '</b>');
     };
 
@@ -183,27 +185,27 @@
         $('#result').append('<p>First number < 5 :' + _.filter(values, lessThanFiveCriteria) + '</p>');
     });
     $('#filterExample2').click(function () {
-        $('#result').empty();
-        values = [{
-            name: 'Craig',
-            state: 'CA',
-            price: 100
-        },
-        {
-            name: 'John',
-            state: 'FL',
-            price: 200
-        },
-        {
-            name: 'Dan',
-            state: 'AZ',
-            price: 500
-        },
-        {
-            name: 'Elijah',
-            state: 'TN',
-            price: 750
-        }
+        values = [
+            {
+                name: 'Craig',
+                state: 'CA',
+                price: 100
+            },
+            {
+                name: 'John',
+                state: 'FL',
+                price: 200
+            },
+            {
+                name: 'Dan',
+                state: 'AZ',
+                price: 500
+            },
+            {
+                name: 'Elijah',
+                state: 'TN',
+                price: 750
+            }
 
         ];
         evenCriteria = function (value) {
@@ -223,6 +225,24 @@
         _.each(_.filter(values, oddCriteria), logProperty, 'price');
         _.each(_.filter(values, greaterThanEightCriteria), logProperty, 'price');
         _.each(_.filter(values, lessThanFiveCriteria), logProperty, 'price');
+    });
+        $('#filterExample3').click(function () {
+        $('#result').empty();
+        var artists = ['Led Zeppelin', 'ACDC', 'Rolling Stones'],
+            artistTemplate = _.template(
+                '<% _.each(artists, function(artist, index, artists) { %>' +
+                '<li><%= artist %></li>' +
+                '<% }); %>'
+            ),
+            content = artistTemplate({
+                artists: _.filter(artists, function (artist, index, artists) {
+                    return artist === 'ACDC';
+                })
+            });
+
+        var container = document.createElement('ol');
+        container.innerHTML = content;
+        $('#result').append(container);
     });
     //-------------------------- where -------------------------------
     $('#whereExample').click(function () {
@@ -305,7 +325,45 @@
         logBold('Dan Wahlin courses');
         _.each(_.findWhere(courses, {
             author: 'Dan Wahlin',
-            level:'Intermediate'
+            level: 'Intermediate'
         }), logProperty, 'title');
     });
+    $('#isEmptyExample').click(function () {
+        logBold(_.isEmpty({}));
+    });
+    $('#flattenExample').click(function () {
+        logBold(_.flatten([[0, 1], [2, 3], [4, 5], [7, 4, 5, 6]]));
+    });
+    $('#rangeExample').click(function () {
+        logBold(_.range([15]));
+    });
+    $('#templateExample').click(function () {
+        var compileTemplate = _.template('hello: <%= name %>');
+        logBold(compileTemplate({ name: 'Test Name' }));
+    });
+    $('#eachExample').click(function () {
+        $('#result').empty();
+        var artists = ['Pharrel Williams', 'Led Zeppelin', 'Rolling Stones'];
+        var eachTemplate = _.template('<p><%= text %></p>');
+        _.each(artists, function (artist, index, artists) {
+            $('#result').append(eachTemplate({ text: artist }));
+        });
+    });
+    $('#eachExample1').click(function () {
+        $('#result').empty();
+        var artists = ['Led Zeppelin', 'ACDC', 'Rolling Stones'],
+            artistTemplate = _.template(
+                '<% _.each(artists, function(artist, index, artists) { %>' +
+                '<li><%= artist %></li>' +
+                '<% }); %>'
+            ),
+            content = artistTemplate({
+                artists: artists
+            });
+
+        var container = document.createElement('ol');
+        container.innerHTML = content;
+        $('#result').append(container);
+    });
+
 })();
