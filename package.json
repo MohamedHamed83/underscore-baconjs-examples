@@ -20,6 +20,7 @@
     "baconjs": "^0.7.93",
     "baconui": "^0.3.14",
     "jquery": "^3.2.1",
+    "jquery-browserify": "^1.8.1",
     "jquery-mockjax": "^2.2.1",
     "underscore": "^1.8.3"
   },
